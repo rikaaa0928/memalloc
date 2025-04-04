@@ -29,6 +29,8 @@ jobs:
   build_release:
     name: Build Release Assets (${{ matrix.target }})
     needs: create_release # Run after release is created
+    permissions:
+      contents: write # Grant permission to upload release assets
     strategy:
       fail-fast: false # Allow other builds to continue if one fails
       matrix:
@@ -51,9 +53,6 @@ jobs:
           - target: x86_64-pc-windows-gnu # Using GNU toolchain for Windows
             os: ubuntu-latest
             asset_suffix: windows-amd64.exe
-          - target: aarch64-pc-windows-gnu # Using GNU toolchain for Windows
-            os: ubuntu-latest
-            asset_suffix: windows-arm64.exe
           # macOS Builds (on macOS runner)
           - target: x86_64-apple-darwin
             os: macos-latest
