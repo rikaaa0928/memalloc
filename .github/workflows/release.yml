@@ -80,7 +80,9 @@ jobs:
 
       # Install zig (required by cargo-zigbuild)
       - name: Install zig
-        uses: taiki-e/install-action@zig
+        uses: taiki-e/install-action@v2 # Use a specific version tag
+        with:
+          tool: zig # Specify the tool to install
 
       # Build using cargo-zigbuild
       - name: Build binary with cargo-zigbuild
