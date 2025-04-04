@@ -72,7 +72,7 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: stable
-          # targets: ${{ matrix.target }} # Not needed when using cargo-zigbuild
+          targets: ${{ matrix.target }} # Needed for rustc to find std
 
       # Install cargo-zigbuild for cross-compilation
       - name: Install cargo-zigbuild
