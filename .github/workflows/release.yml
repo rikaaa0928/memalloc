@@ -78,6 +78,10 @@ jobs:
       - name: Install cargo-zigbuild
         uses: taiki-e/install-action@cargo-zigbuild
 
+      # Install zig (required by cargo-zigbuild)
+      - name: Install zig
+        uses: taiki-e/install-action@zig
+
       # Build using cargo-zigbuild
       - name: Build binary with cargo-zigbuild
         run: cargo zigbuild --release --target ${{ matrix.target }}
