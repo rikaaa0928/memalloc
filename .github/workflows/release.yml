@@ -72,7 +72,7 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: stable
-          targets: ${{ matrix.target }} # Ensure the target is added to the toolchain
+          # targets: ${{ matrix.target }} # Not needed when using cargo-zigbuild
 
       # Install cargo-zigbuild for cross-compilation
       - name: Install cargo-zigbuild
@@ -82,7 +82,7 @@ jobs:
       - name: Set up Zig
         uses: goto-bus-stop/setup-zig@v2
         with:
-          version: latest # Or specify a particular Zig version
+          version: 0.11.0 # Specify a stable Zig version
 
       # Build using cargo-zigbuild
       - name: Build binary with cargo-zigbuild
