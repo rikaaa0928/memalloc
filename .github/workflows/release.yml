@@ -79,10 +79,10 @@ jobs:
         uses: taiki-e/install-action@cargo-zigbuild
 
       # Install zig (required by cargo-zigbuild)
-      - name: Install zig
-        uses: taiki-e/install-action@v2 # Use a specific version tag
+      - name: Set up Zig
+        uses: goto-bus-stop/setup-zig@v2
         with:
-          tool: zig # Specify the tool to install
+          version: latest # Or specify a particular Zig version
 
       # Build using cargo-zigbuild
       - name: Build binary with cargo-zigbuild
